@@ -10,20 +10,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Diary Book',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.green,
       ),
-      home: MyDiary(),
+      home: MainPage(),
     );
   }
 }
 
-class MyDiary extends StatelessWidget {
-  const MyDiary({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    // this will make the navbar
+    return Scaffold(
+        appBar: AppBar(
+      backgroundColor: Colors.grey.shade100,
+      toolbarHeight: 100,
+      elevation: 4, // this add the shadown to the navbar
+      // this add the logo DiaryBook in the navbar
+      title: Row(children: [
+        Text(
+          'Diary',
+          style: TextStyle(fontSize: 39, color: Colors.blueGrey.shade400),
+        ),
+        Text(
+          'Book',
+          style: TextStyle(fontSize: 39, color: Colors.green),
+        )
+      ]),
+    ));
   }
 }
