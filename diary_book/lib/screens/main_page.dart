@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
 
+  @override
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  String? _dropDownText;
   @override
   Widget build(BuildContext context) {
     // this will make the navbar
@@ -22,6 +28,51 @@ class MainPage extends StatelessWidget {
           style: TextStyle(fontSize: 39, color: Colors.green),
         )
       ]),
+
+      // dropdown menu
+
+      actions: [
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton<String>(
+                items: <String>['Latest', 'Earliest'].map((String value) {
+                  return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value, // this is the value of the selecter, for defect it is Empty
+                        style: TextStyle(color: Colors.grey),
+                      ));
+                }).toList(),
+
+                // this make that if the dropdownText is null or empty,
+                // Show 'Select' in the bottom of the page
+                // But if already selected Latest of earliest, show them
+                // Or
+                //If no option has been selected in the button,
+                // 'Select' will appear, but if there is already an option selected,
+                // the selected option will appear
+                hint: (_dropDownText == null)
+                    ? Text('Select')
+                    : Text(_dropDownText!),
+                onChanged: (value) {
+                  // check the state
+                  if (value == 'Latest') {
+                    setState(() {
+                      _dropDownText = value;
+                    });
+                  } else if (value == 'Earliest') {
+                    setState(() {
+                      _dropDownText = value;
+                    });
+                  }
+                },
+              ),
+            )
+          ],
+        ),
+      ],
     ));
   }
 }
