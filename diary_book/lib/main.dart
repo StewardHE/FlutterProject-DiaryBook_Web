@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diary_book/screens/main_page.dart'; // this will add the file main_page.dart
 
+// this will run the app
 void main() {
   runApp(MyApp());
 }

@@ -17,6 +17,7 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: Colors.grey.shade100,
       toolbarHeight: 100,
       elevation: 4, // this add the shadown to the navbar
+
       // this add the logo DiaryBook in the navbar
       title: Row(children: [
         Text(
@@ -68,6 +69,42 @@ class _MainPageState extends State<MainPage> {
                     });
                   }
                 },
+              ),
+            ),
+
+            // This will make the avatar Circle
+            Container(
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                          child: InkWell(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              radius: 30,
+                              backgroundImage: NetworkImage(
+                                  'https://picsum.photos/id/237/200/300'),
+                              backgroundColor: Colors.transparent,
+                            )),
+                      )),
+                      // This add the name under the user photo
+                      Text(
+                        'James',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  // this will add the Logout Button
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.logout_outlined,
+                        size: 19,
+                        color: Colors.red,
+                      ))
+                ],
               ),
             )
           ],
