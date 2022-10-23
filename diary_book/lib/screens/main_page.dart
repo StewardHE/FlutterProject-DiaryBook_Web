@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -117,7 +118,7 @@ class _MainPageState extends State<MainPage> {
         children: [
           // this divide the body in two parts
           Expanded(
-              flex: 4,
+              flex: 1,
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
@@ -125,7 +126,19 @@ class _MainPageState extends State<MainPage> {
                     border: Border(
                         right: BorderSide(width: 0.4, color: Colors.blueGrey))),
                 // color: Colors.green,
-                child: Column(),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(38.0),
+                      child: SfDateRangePicker(
+                        onSelectionChanged: (dateRangePickerSelection) {
+                          // this show the selected date in the console-
+                          print(dateRangePickerSelection.value.toString());
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               )),
           Expanded(
               flex: 3,
