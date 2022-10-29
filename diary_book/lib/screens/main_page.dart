@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
       // The body Of main Page
       body: Row(
         children: [
-          // this divide the body in two parts
+          // this divide the body in two parts (To make the)
           Expanded(
               flex: 1,
               child: Container(
